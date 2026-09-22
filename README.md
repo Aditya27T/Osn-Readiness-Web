@@ -13,6 +13,7 @@
 [Requirements](#requirements) &nbsp;|&nbsp;
 [Installation via Docker (Sail)](#installation-via-docker-sail) &nbsp;|&nbsp;
 [Installation via Composer](#installation-via-composer) &nbsp;|&nbsp;
+[Contributing Guide](CONTRIBUTING.md) &nbsp;|&nbsp;
 [About Laravel](#about-laravel)
 
 ---
