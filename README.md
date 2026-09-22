@@ -79,7 +79,15 @@ docker run --rm \
 ./vendor/bin/sail artisan migrate
 ```
 
-**6. Open the application:**
+**6. Start the development server:**
+
+`artisan dev` menjalankan PHP server, Vite (hot-reload), dan queue worker secara bersamaan dalam satu proses.
+
+```bash
+./vendor/bin/sail artisan dev
+```
+
+**7. Open the application:**
 
 Visit [http://localhost:8000](http://localhost:8000) in your browser.
 
@@ -150,20 +158,22 @@ php artisan key:generate
 php artisan migrate
 ```
 
-**6. Install frontend dependencies and build assets:**
+**6. Start the development server:**
+
+`artisan dev` menjalankan PHP server, Vite (hot-reload), dan queue worker secara bersamaan dalam satu proses.
 
 ```bash
-npm install
-npm run build
-```
-
-**7. Start the development server:**
-
-```bash
-php artisan serve
+composer run dev
 ```
 
 Visit [http://localhost:8000](http://localhost:8000) in your browser.
+
+Untuk production, build aset frontend terlebih dahulu:
+
+```bash
+npm run build
+php artisan serve
+```
 
 ---
 
