@@ -13,6 +13,9 @@
 [Requirements](#requirements) &nbsp;|&nbsp;
 [Installation via Docker (Sail)](#installation-via-docker-sail) &nbsp;|&nbsp;
 [Installation via Composer](#installation-via-composer) &nbsp;|&nbsp;
+[Architecture Rules](docs/ARCHITECTURE_RULES.md) &nbsp;|&nbsp;
+[PRD](docs/PRD.md) &nbsp;|&nbsp;
+[Implementation Plan](docs/IMPLEMENTATION_PLAN.md) &nbsp;|&nbsp;
 [Contributing Guide](CONTRIBUTING.md) &nbsp;|&nbsp;
 [About Laravel](#about-laravel)
 

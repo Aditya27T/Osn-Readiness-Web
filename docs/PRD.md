@@ -5,7 +5,7 @@
 | Proyek | OSN Readiness Web |
 | Versi | 1.0 (draft) |
 | Tanggal | 2026-09-22 |
-| Status | Menunggu persetujuan |
+| Status | Approved / Implemented |
 | Dokumen terkait | [ARCHITECTURE_RULES.md](ARCHITECTURE_RULES.md) · [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) |
 
 ---
@@ -222,12 +222,12 @@ Contoh response `GET /auth/me`:
 
 ## 8. Definition of Done
 
-- [ ] Semua FR-01 … FR-09 memenuhi acceptance criteria.
-- [ ] `composer test` dan `vendor/bin/pint --test` hijau.
-- [ ] `php artisan migrate:fresh --seed` berjalan tanpa error dan menghasilkan akun Super Admin.
-- [ ] `php artisan route:list --path=api` menampilkan semua endpoint di §6 dengan middleware yang benar.
-- [ ] Smoke test manual (§Verifikasi di IMPLEMENTATION_PLAN.md) lulus.
-- [ ] PR di-review; tidak ada pelanggaran `ARCHITECTURE_RULES.md`.
+- [x] Semua FR-01 … FR-09 memenuhi acceptance criteria.
+- [x] `composer test` dan `vendor/bin/pint --test` hijau.
+- [x] `php artisan migrate:fresh --seed` berjalan tanpa error dan menghasilkan akun Super Admin.
+- [x] `php artisan route:list --path=api` menampilkan semua endpoint di §6 dengan middleware yang benar.
+- [x] Smoke test manual (§Verifikasi di IMPLEMENTATION_PLAN.md) lulus.
+- [x] PR di-review; tidak ada pelanggaran `ARCHITECTURE_RULES.md`.
 
 ---
 

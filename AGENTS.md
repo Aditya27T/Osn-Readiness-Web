@@ -32,7 +32,7 @@ Linux:
 /bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.5)"
 ```
 
-After installation, ask the user to restart their terminal. If the agent needs the restarted shell to continue, ask the user to reopen their terminal and rerun their original prompt.
+After installation, ask the user to restart their terminal. If the agent needs the restarted shell to continue, ask the user to reopen their terminal and rerun their original request.
 
 ## Agent Setup
 
@@ -44,4 +44,13 @@ php artisan boost:install
 ```
 
 Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
+
+## Architecture Rules
+
+Ikuti `docs/ARCHITECTURE_RULES.md` untuk semua kode baru.
+
+Dokumen terkait:
+- [ARCHITECTURE_RULES.md](docs/ARCHITECTURE_RULES.md) — Standar arsitektur & coding rules
+- [PRD.md](docs/PRD.md) — Product Requirements Document
+- [IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md) — Implementation roadmap
 </laravel-boost-guidelines>
