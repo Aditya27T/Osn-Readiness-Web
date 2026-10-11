@@ -15,3 +15,6 @@ __pycache__/
 graphify-out/
 .DS_Store
 Archive.zip
+
+# Override Docker Compose lokal (port dev bentrok dengan stack Laravel)
+docker-compose.override.yml
