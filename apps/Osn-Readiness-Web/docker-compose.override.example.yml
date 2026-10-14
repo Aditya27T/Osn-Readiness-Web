@@ -1,0 +1,36 @@
+# CONTOH override Docker Compose -- salin ke docker-compose.override.yml di
+# mesinmu kalau butuh. Berkas `docker-compose.override.yml` yang asli sudah
+# masuk .gitignore, jadi isi lokal tiap orang tidak ikut ter-commit.
+#
+# CARA PAKAI:
+#   cp docker-compose.override.example.yml docker-compose.override.yml
+#
+# Compose memuat docker-compose.override.yml otomatis, jadi tidak perlu flag -f
+# tambahan.
+#
+# ALASAN BERKAS INI ADA:
+# Di Windows, folder proyek di-bind-mount ke container lewat WSL2/virtiofs yang
+# jauh lebih lambat daripada filesystem Linux asli. Sail menjalankan
+# `php artisan serve` (server built-in `php -S`), dan `opcache.enable_cli` bawaan
+# bernilai Off -- sehingga PHP meng-compile ulang setiap file pada tiap request,
+# ditambah revalidasi timestamp yang periodik. Gejalanya request sesekali macet
+# 2-5 detik dan E2E gagal karena timeout.
+#
+# Diukur di device ini, GET /up, 25 request berurutan:
+#   tanpa override : rata-rata 1153 ms, slowest 5416 ms, 6 dari 25 lambat (>1s)
+#   dengan override: rata-rata  235 ms, slowest  432 ms, 0 dari 25 lambat
+#
+# Dampaknya: suite BE turun dari 669 detik ke 237 detik, dan E2E jadi stabil.
+#
+# CATATAN PENTING -- validate_timestamps=0 berarti perubahan pada file PHP/Blade
+# TIDAK akan terlihat sampai container di-restart:
+#   docker compose restart laravel.test
+# Kalau lebih suka hot-reload dan siap menerima stall sebentar, ubah
+# validate_timestamps jadi 1 dan revalidate_freq jadi 60 di
+# docker/php-cli-opcache.ini.
+
+services:
+  laravel.test:
+    volumes:
+      - '.:/var/www/html'
+      - './docker/php-cli-opcache.ini:/etc/php/8.5/cli/conf.d/98-opcache.ini:ro'

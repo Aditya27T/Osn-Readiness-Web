@@ -1,0 +1,49 @@
+[
+  {
+    "id_sumber": "kab-2020-001",
+    "tingkat": "kabupaten",
+    "materi": "kab-01",
+    "tingkat_kesulitan": "sedang",
+    "peruntukan": "pretest",
+    "deskripsi_soal": "Cerita bersama untuk soal 1 sampai 3",
+    "soal": "Berapa hasil 1 + 1?",
+    "pilihan": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "jawaban_benar": "B",
+    "pembahasan": "Penjumlahan dasar: 1 + 1 = 2.",
+    "gambar": "kab-2020-001.png"
+  },
+  {
+    "id_sumber": "kab-2020-002",
+    "tingkat": "kabupaten",
+    "materi": "kab-01",
+    "tingkat_kesulitan": "mudah",
+    "peruntukan": "latihan",
+    "deskripsi_soal": null,
+    "soal": "Sebutkan nama himpunan yang tidak punya anggota.",
+    "pilihan": [],
+    "jawaban_benar": "himpunan kosong",
+    "pembahasan": null,
+    "gambar": null
+  },
+  {
+    "id_sumber": "kab-2020-003",
+    "tingkat": "kabupaten",
+    "materi": "kab-01",
+    "tingkat_kesulitan": "sulit",
+    "peruntukan": "simulasi",
+    "deskripsi_soal": "Cerita bersama untuk soal 1 sampai 3",
+    "soal": "Soal satu pilihan tanpa kunci sah.",
+    "pilihan": {
+      "A": "1",
+      "B": "2"
+    },
+    "jawaban_benar": "E",
+    "pembahasan": null,
+    "gambar": null
+  }
+]

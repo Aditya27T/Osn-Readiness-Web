@@ -1,0 +1,2754 @@
+{
+  "info": {
+    "name": "OSN Readiness API",
+    "description": "Seluruh endpoint /api OSN Readiness. Jalankan Login siswa dan Login admin lebih dulu; token dan id tersimpan otomatis ke variabel koleksi. Rincian: docs/API-ENDPOINTS.md.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "admin_token",
+      "value": ""
+    },
+    {
+      "key": "admin_email",
+      "value": "admin@example.com"
+    },
+    {
+      "key": "admin_password",
+      "value": "password"
+    },
+    {
+      "key": "tingkat_id",
+      "value": "1"
+    },
+    {
+      "key": "kompetensi_id",
+      "value": "1"
+    },
+    {
+      "key": "materi_id",
+      "value": "1"
+    },
+    {
+      "key": "konteks_id",
+      "value": "1"
+    },
+    {
+      "key": "soal_id",
+      "value": "1"
+    },
+    {
+      "key": "quiz_id",
+      "value": "1"
+    },
+    {
+      "key": "simulasi_id",
+      "value": "1"
+    },
+    {
+      "key": "pretest_id",
+      "value": ""
+    },
+    {
+      "key": "pengerjaan_id",
+      "value": ""
+    },
+    {
+      "key": "hasil_id",
+      "value": ""
+    },
+    {
+      "key": "siswa_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            },
+            "description": "Membuat akun siswa. 201 + token. Email disimpan huruf kecil.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Siswa Uji\",\n  \"email\": \"siswa.uji@example.com\",\n  \"password\": \"Rahasia123!\",\n  \"password_confirmation\": \"Rahasia123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.token !== undefined) { pm.collectionVariables.set('token', b.data.token); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login siswa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "description": "200 + token. 401 bila salah, 403 bila akun nonaktif, 429 setelah 5 kali per menit.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"siswa.uji@example.com\",\n  \"password\": \"Rahasia123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.token !== undefined) { pm.collectionVariables.set('token', b.data.token); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Login Super Admin; token disimpan ke admin_token.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"password\": \"{{admin_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.token !== undefined) { pm.collectionVariables.set('admin_token', b.data.token); }"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      }
+    },
+    {
+      "name": "Auth (perlu token)",
+      "item": [
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            },
+            "description": "Profil, roles, dan tingkat_aktif_id."
+          }
+        },
+        {
+          "name": "Ubah profil",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "profile"
+              ]
+            },
+            "description": "Ubah name dan email sendiri. Email disimpan huruf kecil.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nama Baru\",\n  \"email\": \"nama.baru@example.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            },
+            "description": "Mencabut token yang sedang dipakai saja."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Siswa · Tingkat & dashboard",
+      "item": [
+        {
+          "name": "Daftar tingkat",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/tingkat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "tingkat"
+              ]
+            },
+            "description": "Dua tingkat beserta tingkat_terbuka dan tahap."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('tingkat_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard"
+              ]
+            },
+            "description": "Per tingkat: tahap, sisa kuota simulasi, syarat simulasi, hasil simulasi terakhir."
+          }
+        },
+        {
+          "name": "Riwayat",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/riwayat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "riwayat"
+              ],
+              "query": [
+                {
+                  "key": "jenis",
+                  "value": "pretest",
+                  "description": "pretest, latihan, atau simulasi (opsional)",
+                  "disabled": true
+                },
+                {
+                  "key": "tingkat_id",
+                  "value": "{{tingkat_id}}",
+                  "description": "opsional",
+                  "disabled": true
+                },
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "description": "1–100, opsional",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Riwayat hasil milik siswa, terbaru dulu, paginated."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Siswa · Pre-test",
+      "item": [
+        {
+          "name": "Mulai pre-test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pretest",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pretest"
+              ]
+            },
+            "description": "201 pre-test baru, 200 bila melanjutkan yang berjalan. 403 TINGKAT_TERKUNCI, 409 SUDAH_LULUS / PUTARAN_MASIH_BERJALAN, 503 BANK_SOAL_TIDAK_CUKUP.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data) { pm.collectionVariables.set('pretest_id', b.data.id); if (b.data.soal && b.data.soal.length) { pm.collectionVariables.set('soal_id', b.data.soal[0].id); } }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lihat pre-test",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pretest/{{pretest_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pretest",
+                "{{pretest_id}}"
+              ]
+            },
+            "description": "Soal dan jawaban tersimpan bila berjalan; hasil dan pemetaan bila selesai. Milik siswa lain 404."
+          }
+        },
+        {
+          "name": "Simpan jawaban pre-test",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pretest/{{pretest_id}}/jawaban",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pretest",
+                "{{pretest_id}}",
+                "jawaban"
+              ]
+            },
+            "description": "409 SUDAH_DISUBMIT setelah submit; 422 bila soal bukan bagian pre-test itu.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"soal_id\": {{soal_id}},\n  \"jawaban_user\": \"A\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Submit pre-test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pretest/{{pretest_id}}/submit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pretest",
+                "{{pretest_id}}",
+                "submit"
+              ]
+            },
+            "description": "Menilai dan memetakan materi. 503 HASIL_SEDANG_DIPROSES bila layanan hitung gagal (dinilai ulang lewat job)."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Siswa · Materi & latihan",
+      "item": [
+        {
+          "name": "Daftar materi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/materi?tingkat_id={{tingkat_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "materi"
+              ],
+              "query": [
+                {
+                  "key": "tingkat_id",
+                  "value": "{{tingkat_id}}",
+                  "description": "tanpa ini memakai tingkat aktif siswa",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Materi wajib lebih dulu (urut prioritas), dengan progress dan nilai latihan terbaik. 403 TINGKAT_TERKUNCI."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('materi_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail materi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/materi/{{materi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "materi",
+                "{{materi_id}}"
+              ]
+            },
+            "description": "Isi materi."
+          }
+        },
+        {
+          "name": "Perbarui progress",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/materi/{{materi_id}}/progress",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "materi",
+                "{{materi_id}}",
+                "progress"
+              ]
+            },
+            "description": "status: belajar atau selesai. 409 BELUM_PRETEST tanpa putaran aktif.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"selesai\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Mulai latihan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/quiz/{{quiz_id}}/mulai",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "quiz",
+                "{{quiz_id}}",
+                "mulai"
+              ]
+            },
+            "description": "201 baru, 200 melanjutkan. 409 BELUM_PRETEST, 503 BANK_SOAL_TIDAK_CUKUP."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data) { pm.collectionVariables.set('pengerjaan_id', b.data.id); if (b.data.soal && b.data.soal.length) { pm.collectionVariables.set('soal_id', b.data.soal[0].id); } }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lihat pengerjaan latihan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/quiz-pengerjaan/{{pengerjaan_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "quiz-pengerjaan",
+                "{{pengerjaan_id}}"
+              ]
+            },
+            "description": "Soal bila berjalan, hasil bila selesai."
+          }
+        },
+        {
+          "name": "Simpan jawaban latihan",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/quiz-pengerjaan/{{pengerjaan_id}}/jawaban",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "quiz-pengerjaan",
+                "{{pengerjaan_id}}",
+                "jawaban"
+              ]
+            },
+            "description": "409 SUDAH_DISUBMIT setelah submit.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"soal_id\": {{soal_id}},\n  \"jawaban_user\": \"A\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Submit latihan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/quiz-pengerjaan/{{pengerjaan_id}}/submit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "quiz-pengerjaan",
+                "{{pengerjaan_id}}",
+                "submit"
+              ]
+            },
+            "description": "Menilai latihan. 503 HASIL_SEDANG_DIPROSES bila layanan hitung gagal."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Siswa · Simulasi",
+      "item": [
+        {
+          "name": "Syarat simulasi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/simulasi/syarat?tingkat_id={{tingkat_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "simulasi",
+                "syarat"
+              ],
+              "query": [
+                {
+                  "key": "tingkat_id",
+                  "value": "{{tingkat_id}}",
+                  "description": "wajib",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "terpenuhi, alasan (belum_pretest atau null), dan rincian per materi wajib. 403 TINGKAT_TERKUNCI."
+          }
+        },
+        {
+          "name": "Daftar simulasi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/simulasi?tingkat_id={{tingkat_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "simulasi"
+              ],
+              "query": [
+                {
+                  "key": "tingkat_id",
+                  "value": "{{tingkat_id}}",
+                  "description": "tanpa ini memakai tingkat aktif siswa",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Simulasi aktif dan sisa kuota percobaan."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('simulasi_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mulai simulasi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/simulasi/{{simulasi_id}}/mulai",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "simulasi",
+                "{{simulasi_id}}",
+                "mulai"
+              ]
+            },
+            "description": "201 baru, 200 melanjutkan. 409 SYARAT_SIMULASI_BELUM_TERPENUHI (rincian di detail), SUDAH_LULUS, KUOTA_SIMULASI_HABIS, SIMULASI_BELUM_DINILAI."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data) { pm.collectionVariables.set('hasil_id', b.data.id); if (b.data.soal && b.data.soal.length) { pm.collectionVariables.set('soal_id', b.data.soal[0].id); } }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lihat percobaan simulasi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/hasil-simulasi/{{hasil_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hasil-simulasi",
+                "{{hasil_id}}"
+              ]
+            },
+            "description": "Soal bila berjalan, hasil bila selesai."
+          }
+        },
+        {
+          "name": "Simpan jawaban simulasi",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/hasil-simulasi/{{hasil_id}}/jawaban",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hasil-simulasi",
+                "{{hasil_id}}",
+                "jawaban"
+              ]
+            },
+            "description": "409 WAKTU_HABIS setelah batas + 30 detik; 409 SUDAH_DISUBMIT setelah submit.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"soal_id\": {{soal_id}},\n  \"jawaban_user\": \"A\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Submit simulasi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/hasil-simulasi/{{hasil_id}}/submit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hasil-simulasi",
+                "{{hasil_id}}",
+                "submit"
+              ]
+            },
+            "description": "Menilai dan menerapkan aturan kelulusan."
+          }
+        },
+        {
+          "name": "Review simulasi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/hasil-simulasi/{{hasil_id}}/review",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "hasil-simulasi",
+                "{{hasil_id}}",
+                "review"
+              ]
+            },
+            "description": "Jawaban, kunci, dan pembahasan. 409 SIMULASI_BELUM_DINILAI bila belum dinilai."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Dashboard & bank soal",
+      "item": [
+        {
+          "name": "Dashboard admin",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/dashboard",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "dashboard"
+              ]
+            },
+            "description": "Siswa aktif, pengerjaan per jenis, siswa per tingkat aktif, rata-rata nilai per jenis."
+          }
+        },
+        {
+          "name": "Kecukupan bank soal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/bank-soal/kecukupan?tingkat_id={{tingkat_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "bank-soal",
+                "kecukupan"
+              ],
+              "query": [
+                {
+                  "key": "tingkat_id",
+                  "value": "{{tingkat_id}}",
+                  "description": "wajib",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Lima bagian laporan kecukupan bank soal."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Tingkat & aturan pemetaan",
+      "item": [
+        {
+          "name": "Daftar tingkat",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/tingkat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "tingkat"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('tingkat_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail tingkat",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/tingkat/{{tingkat_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "tingkat",
+                "{{tingkat_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah tingkat",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/tingkat/{{tingkat_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "tingkat",
+                "{{tingkat_id}}"
+              ]
+            },
+            "description": "Hanya nama dan deskripsi. Tingkat tidak bisa ditambah atau dihapus.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_tingkat\": \"Kabupaten\",\n  \"deskripsi\": \"Seleksi tingkat kabupaten\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Lihat aturan pemetaan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/tingkat/{{tingkat_id}}/aturan-pemetaan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "tingkat",
+                "{{tingkat_id}}",
+                "aturan-pemetaan"
+              ]
+            },
+            "description": "16 parameter aturan satu tingkat."
+          }
+        },
+        {
+          "name": "Ubah aturan pemetaan",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/tingkat/{{tingkat_id}}/aturan-pemetaan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "tingkat",
+                "{{tingkat_id}}",
+                "aturan-pemetaan"
+              ]
+            },
+            "description": "Semua parameter wajib dikirim. Tiga persen level pre-test dan simulasi masing-masing berjumlah 100.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bobot_mudah\": 1,\n  \"bobot_sedang\": 2,\n  \"bobot_sulit\": 3,\n  \"pretest_jumlah_soal\": 30,\n  \"pretest_persen_mudah\": 50,\n  \"pretest_persen_sedang\": 30,\n  \"pretest_persen_sulit\": 20,\n  \"pretest_min_soal_per_materi\": 2,\n  \"jumlah_materi_wajib\": 3,\n  \"latihan_min_soal\": 10,\n  \"latihan_min_nilai\": 50,\n  \"simulasi_persen_mudah\": 30,\n  \"simulasi_persen_sedang\": 40,\n  \"simulasi_persen_sulit\": 30,\n  \"simulasi_maks_percobaan\": 3,\n  \"passing_grade\": 70\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Kompetensi",
+      "item": [
+        {
+          "name": "Daftar kompetensi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/kompetensi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "kompetensi"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('kompetensi_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah kompetensi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/kompetensi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "kompetensi"
+              ]
+            },
+            "description": "Nama unik per tingkat.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}},\n  \"nama_kompetensi\": \"Logika\",\n  \"deskripsi\": \"Kelompok materi logika\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('kompetensi_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail kompetensi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/kompetensi/{{kompetensi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "kompetensi",
+                "{{kompetensi_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah kompetensi",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/kompetensi/{{kompetensi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "kompetensi",
+                "{{kompetensi_id}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_kompetensi\": \"Logika dan Himpunan\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus kompetensi",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/kompetensi/{{kompetensi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "kompetensi",
+                "{{kompetensi_id}}"
+              ]
+            },
+            "description": "409 KOMPETENSI_MASIH_DIGUNAKAN bila masih punya materi."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Materi",
+      "item": [
+        {
+          "name": "Daftar materi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/materi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "materi"
+              ],
+              "query": [
+                {
+                  "key": "kompetensi_id",
+                  "value": "{{kompetensi_id}}",
+                  "description": "opsional",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('materi_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah materi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/materi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "materi"
+              ]
+            },
+            "description": "Kompetensi harus setingkat; urutan unik per tingkat.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}},\n  \"kompetensi_id\": {{kompetensi_id}},\n  \"urutan\": 99,\n  \"judul\": \"Materi uji\",\n  \"deskripsi\": \"Deskripsi singkat\",\n  \"isi_materi\": \"## Isi materi dalam Markdown\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('materi_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unggah gambar materi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/materi/gambar",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "materi",
+                "gambar"
+              ]
+            },
+            "description": "multipart/form-data, field gambar (png/jpg/webp, maks 2 MB). Membalas data.path tanpa domain untuk ditaruh di isi_materi.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "gambar",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Detail materi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/materi/{{materi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "materi",
+                "{{materi_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah materi",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/materi/{{materi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "materi",
+                "{{materi_id}}"
+              ]
+            },
+            "description": "Boleh mengirim sebagian kolom.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Judul baru\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus materi",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/materi/{{materi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "materi",
+                "{{materi_id}}"
+              ]
+            },
+            "description": "409 MATERI_MASIH_DIGUNAKAN bila punya soal, latihan, atau dirujuk hasil siswa."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Cerita soal (konteks)",
+      "item": [
+        {
+          "name": "Daftar cerita soal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/konteks-soal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "konteks-soal"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('konteks_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah cerita soal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/konteks-soal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "konteks-soal"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}},\n  \"judul\": \"Cerita bersama\",\n  \"isi_konteks\": \"Teks cerita untuk beberapa soal.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('konteks_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail cerita soal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/konteks-soal/{{konteks_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "konteks-soal",
+                "{{konteks_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah cerita soal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/konteks-soal/{{konteks_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "konteks-soal",
+                "{{konteks_id}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"judul\": \"Judul cerita baru\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus cerita soal",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/konteks-soal/{{konteks_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "konteks-soal",
+                "{{konteks_id}}"
+              ]
+            },
+            "description": "409 KONTEKS_SOAL_MASIH_DIGUNAKAN bila masih dipakai soal."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Soal & pembahasan",
+      "item": [
+        {
+          "name": "Daftar soal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal"
+              ],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "description": "opsional",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Paginated, memuat kunci jawaban."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('soal_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah soal pilihan ganda",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal"
+              ]
+            },
+            "description": "Pilihan berkunci huruf, kunci berupa hurufnya. Materi dan cerita harus setingkat. Gambar opsional lewat multipart.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}},\n  \"materi_id\": {{materi_id}},\n  \"konteks_id\": null,\n  \"level\": \"mudah\",\n  \"peruntukan\": \"pretest\",\n  \"tipe_soal\": \"pilihan_ganda\",\n  \"pertanyaan\": \"Berapa hasil 1 + 1?\",\n  \"pilihan_jawaban\": {\n    \"A\": \"1\",\n    \"B\": \"2\",\n    \"C\": \"3\",\n    \"D\": \"4\"\n  },\n  \"kunci_jawaban\": \"B\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('soal_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah soal isian",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal"
+              ]
+            },
+            "description": "Soal isian tidak punya pilihan_jawaban.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}},\n  \"materi_id\": {{materi_id}},\n  \"level\": \"sedang\",\n  \"peruntukan\": \"latihan\",\n  \"tipe_soal\": \"isian\",\n  \"pertanyaan\": \"Berapa hasil 2 + 2?\",\n  \"kunci_jawaban\": \"4\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('soal_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail soal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah soal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}"
+              ]
+            },
+            "description": "Boleh sebagian kolom. Soal yang sudah dipakai pengerjaan menolak perubahan kunci, level, peruntukan, dan materi (422); teks boleh.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pertanyaan\": \"Teks pertanyaan yang sudah diperbaiki?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus soal",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}"
+              ]
+            },
+            "description": "Soft delete."
+          }
+        },
+        {
+          "name": "Lihat pembahasan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}/pembahasan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}",
+                "pembahasan"
+              ]
+            },
+            "description": "404 bila belum ada."
+          }
+        },
+        {
+          "name": "Simpan pembahasan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}/pembahasan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}",
+                "pembahasan"
+              ]
+            },
+            "description": "Buat atau perbarui; satu soal satu pembahasan.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isi_pembahasan\": \"Penjelasan jawaban.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Ubah pembahasan",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}/pembahasan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}",
+                "pembahasan"
+              ]
+            },
+            "description": "404 bila belum ada.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isi_pembahasan\": \"Penjelasan yang diperbarui.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus pembahasan",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/soal/{{soal_id}}/pembahasan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "soal",
+                "{{soal_id}}",
+                "pembahasan"
+              ]
+            },
+            "description": ""
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Latihan",
+      "item": [
+        {
+          "name": "Daftar latihan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/latihan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "latihan"
+              ],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "description": "opsional",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('quiz_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah latihan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/latihan",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "latihan"
+              ]
+            },
+            "description": "Satu latihan per materi; jumlah_soal minimal latihan_min_soal.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"materi_id\": {{materi_id}},\n  \"nama_quiz\": \"Latihan materi uji\",\n  \"deskripsi\": null,\n  \"jumlah_soal\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('quiz_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail latihan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/latihan/{{quiz_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "latihan",
+                "{{quiz_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah latihan",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/latihan/{{quiz_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "latihan",
+                "{{quiz_id}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_quiz\": \"Nama latihan baru\",\n  \"jumlah_soal\": 12\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus latihan",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/latihan/{{quiz_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "latihan",
+                "{{quiz_id}}"
+              ]
+            },
+            "description": "409 LATIHAN_MASIH_DIGUNAKAN bila sudah punya pengerjaan."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Simulasi",
+      "item": [
+        {
+          "name": "Daftar simulasi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/simulasi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "simulasi"
+              ],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "description": "opsional",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Termasuk yang nonaktif."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('simulasi_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tambah simulasi",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/simulasi",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "simulasi"
+              ]
+            },
+            "description": "is_aktif true hanya lolos bila bank soal cukup untuk satu percobaan (422 pada is_aktif).",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tingkat_id\": {{tingkat_id}},\n  \"nama_simulasi\": \"Simulasi 1\",\n  \"deskripsi\": null,\n  \"jumlah_soal\": 30,\n  \"durasi_menit\": 90,\n  \"is_aktif\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data.id !== undefined) { pm.collectionVariables.set('simulasi_id', b.data.id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail simulasi",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/simulasi/{{simulasi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "simulasi",
+                "{{simulasi_id}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Ubah simulasi",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/simulasi/{{simulasi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "simulasi",
+                "{{simulasi_id}}"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nama_simulasi\": \"Simulasi 1\",\n  \"jumlah_soal\": 30,\n  \"durasi_menit\": 90,\n  \"is_aktif\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Hapus simulasi",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/simulasi/{{simulasi_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "simulasi",
+                "{{simulasi_id}}"
+              ]
+            },
+            "description": "409 SIMULASI_MASIH_DIGUNAKAN bila sudah punya hasil."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Admin · Siswa",
+      "item": [
+        {
+          "name": "Daftar siswa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/siswa",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "siswa"
+              ],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "15",
+                  "description": "opsional",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Hanya akun ber-role siswa, aktif maupun nonaktif."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const b = pm.response.json(); if (b && b.data && b.data[0].id !== undefined) { pm.collectionVariables.set('siswa_id', b.data[0].id); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Detail siswa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/siswa/{{siswa_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "siswa",
+                "{{siswa_id}}"
+              ]
+            },
+            "description": "Akun admin dibalas 404."
+          }
+        },
+        {
+          "name": "Ubah siswa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/siswa/{{siswa_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "siswa",
+                "{{siswa_id}}"
+              ]
+            },
+            "description": "name, email, password (+ password_confirmation); semuanya opsional.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nama Baru\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Nonaktifkan siswa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/siswa/{{siswa_id}}/deactivate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "siswa",
+                "{{siswa_id}}",
+                "deactivate"
+              ]
+            },
+            "description": "Mencabut semua token siswa itu."
+          }
+        },
+        {
+          "name": "Hapus siswa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/siswa/{{siswa_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "siswa",
+                "{{siswa_id}}"
+              ]
+            },
+            "description": "Soft delete dan mencabut semua token."
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{admin_token}}",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
