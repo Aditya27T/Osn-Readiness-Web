@@ -1,0 +1,64 @@
+Database: PostgreSQL 16 (relasional, RRD)
+Bukan NoSQL. Alasannya jelas dari kebutuhannya: jsonb (pilihan jawaban soal), partial unique index (WHERE deleted_at IS NULL), check constraint, dan SQL view UNION ALL — semua fitur yang tidak ada di database dokumen. Semua FK, check, dan index dikunci di level database, bukan cuma di layer PHP.
+Config: compose.yaml service pgsql. Testing pakai DB terpisah osn_readiness_testing.
+Jumlah entitas
+- 19 tabel domain (users, tingkat_seleksi, kompetensi, materi, konteks_soal, soal, pembahasan, aturan_pemetaan, simulasi, quiz, pretest, pretest_jawaban, pemetaan_materi, rekomendasi_materi, progress_belajar, quiz_pengerjaan, quiz_jawaban, hasil_simulasi, hasil_simulasi_jawaban, kenaikan_tingkat)
+- Plus tabel sistem: users, sessions, cache, jobs, personal_access_tokens, dan4 tabel Spatie RBAC (roles, permissions, model_has_roles, model_has_permissions, role_has_permissions)
+- 1 SQL view: riwayat_hasil (bukan tabel, read-only, tanpa timestamps, migration-nya wajib jalan paling akhir)
+- 36 foreign key = 36 relasi
+Peta relasi
+Pusat skema: tingkat_seleksi — 10 FK masuk ke sini, jadi ini node paling hub.
+tingkat_seleksi (1) ──< (N) kompetensi
+tingkat_seleksi (1) ──< (N) materi
+tingkat_seleksi (1) ──< (N) konteks_soal
+tingkat_seleksi (1) ──< (N) soal
+tingkat_seleksi (1) ──< (N) simulasi
+tingkat_seleksi (1) ──< (N) aturan_pemetaan
+tingkat_seleksi (1) ──< (N) pretest
+tingkat_seleksi (1) ──< (N) users (tingkat_aktif_id)
+tingkat_seleksi (1) ──< (N) kenaikan_tingkat (tingkat_asal_id)
+tingkat_seleksi (1) ──< (N) kenaikan_tingkat (tingkat_tujuan_id)
+Rantai konten (hierarki bertingkat):
+tingkat_seleksi (1) ──< kompetensi (1) ──< materi (N)
+materi (1) ──< soal (N) soal.peruntukan = 'latihan'/'pretest'/'simulasi'
+materi (1) ──< quiz (N)        1-1 nyata: quiz.materi_id UNIQUE
+konteks_soal (1) ──< soal (N)  nullable
+soal (1) ──(1) pembahasan pembahasan.soal_id UNIQUE, CASCADE
+Tiga mode pengerjaan — polanya identik, hanya tabelnya beda. Ini inti desain: pretest/latihan/simulasi punya struktur sama persis,dipisah supaya partial unique index per mode bisa independen.
+Mode	Header	Jawaban
+Pretest	pretest	pretest_jawaban
+Latihan	quiz_pengerjaan	quiz_jawaban
+Simulasi	hasil_simulasi	hasil_simulasi_jawaban
+users (1) ──< pretest (N) ──< pretest_jawaban (N) ──> soal (1)
+users (1) ──< quiz_pengerjaan (N) ──< quiz_jawaban (N) ──> soal (1)
+users (1) ──< hasil_simulasi (N) ──< hasil_simulasi_jawaban (N) ──> soal (1)
+Tiap tabel jawaban punya unique(pengerjaan_id, soal_id) — satu soal tidak bisa dijawab dua kali dalam satu pengerjaan.
+Analisis & rekomendasi (turbun dari pretest):
+pretest (1) ──< pemetaan_materi (N) ──> materi (1)
+pretest (1) ──< rekomendasi_materi (N) ──> materi (1)
+pretest (1) ──< hasil_simulasi (N)      hasil_simulasi WAJIB punya pretest_id
+hasil_simulasi.pretest_id bukan nullable — simulasi harus based on pretest. Ini yang bikin seluruh alur bisa di-collapse jadi riwayat_hasil.
+users (1) ──< progress_belajar (N) ──> materi (1)   unique(user_id, materi_id)
+users (1) ──< kenaikan_tingkat (N) ──> tingkat_seleksi ×2
+View riwayat_hasil menyatukan 3 sumber jadi 1 tabel virtual: pretest (langsung), quiz_pengerjaan (harus JOIN quiz → materi buat dapat tingkat_id), hasil_simulasi (JOIN simulasi). Kolomnya diseragamkan: jenis_hasil, referensi_id, user_id, tingkat_id, nilai, tanggal.
+Cardinality
+- 1-to-1: soal↔pembahasan, materi↔quiz, users↔roles/permissions
+- 1-to-N: mayoritas (satu tingkat punya banyak materi, satu user banyak pretest)
+- N-to-N: dipecah lewat tabel pivot — role_has_permissions, model_has_roles. Karena users tidak punya kolom role/kelas/sekolah (sudah di-drop), role murni lewat Spatie.
+- Recursive/self-FK: kenaikan_tingkat.tingkat_asal_id dan tingkat_tujuan_id sama-sama ke tingkat_seleksi
+Constraint yang menjaga integritas
+Partial unique index — dibuat via DB::statement karena Laravel tidak punya fitur ini. Semuanya aturan "hanya satu yang boleh sedang berjalan":
+users_email_aktif_unique              ON users (email) WHERE deleted_at IS NULL
+pretest_berjalan_unique               ON pretest (user_id, tingkat_id) WHERE selesai_pada IS NULL
+hasil_simulasi_berjalan_unique        ON hasil_simulasi (user_id) WHERE selesai_pada IS NULL
+quiz_pengerjaan_berjalan_unique       ON quiz_pengerjaan (user_id, quiz_id) WHERE disubmit_pada IS NULL
+kenaikan_lulus_unique                 ON kenaikan_tingkat (user_id, tingkat_asal_id) WHERE status = 'lulus'
+Yang terakhir ini butuh migration tambahan untuk bersih-basih data duplikat dulu sebelum index bisa dibuat — bukan sekadar CREATE INDEX.
+CHECK constraint代替 ENUM, karena migrasi lebih portable dan value list-nya terkontrol dari satu tempat:
+soal_level_check        CHECK (level IN ('mudah','sedang','sulit'))
+soal_peruntukan_check   CHECK (peruntukan IN ('pretest','latihan','simulasi'))
+soal_tipe_check         CHECK (tipe_soal IN ('pilihan_ganda','isian'))
+quiz_jumlah_soal_check  CHECK (jumlah_soal >= 10)
+progress_status_check   CHECK (status IN ('belajar','selesai'))
+kenaikan_status_check   CHECK (status IN ('lulus','tidak_lulus'))
+Delete behavior — dua Policy yang jelas: cascadeOnDelete untuk data turunan milik user (pretest_jawaban, quiz_jawaban, hasil_simulasi_jawaban, progress_belajar), restrictOnDelete untuk konten belajar (materi, soal, kompetensi) supaya Referential Integrity tak bisa dihancurkan cascade.softDeletes pada Soal menjaga soal yang dipakai pengerjaan tetap bisa diambil untuk review, dan users_email_aktif_unique代替 unique biasa supaya email masih bisa dipakai ulang setelah user di-soft-delete.
