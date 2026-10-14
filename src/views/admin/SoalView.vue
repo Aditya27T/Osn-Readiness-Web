@@ -10,6 +10,7 @@ import InputText from 'primevue/inputtext'
 import Textarea from 'primevue/textarea'
 import Select from 'primevue/select'
 import Dialog from 'primevue/dialog'
+import { renderKontenSatuan } from '@/lib/richtext.js'
 import AdminPageHeader from '@/components/admin/AdminPageHeader.vue'
 import AdminPaginasi from '@/components/admin/AdminPaginasi.vue'
 import AdminKonfirmasi from '@/components/admin/AdminKonfirmasi.vue'
@@ -82,6 +83,12 @@ async function muatReferensi() {
   } catch {
     daftarKonteks.value = []
   }
+}
+
+// Daftar soal di panel admin dirender sebaris: teksnya bisa berisi Markdown
+// dan rumus, dan daftarnya bukan dokumen panjang seperti isi materi.
+function soalHtml(teks) {
+  return renderKontenSatuan(teks)
 }
 
 function gantiTingkat(id) {
@@ -237,7 +244,7 @@ onMounted(() => muat({ force: true }))
           >
             <div class="flex flex-wrap items-start justify-between gap-3">
               <div class="min-w-0 flex-1">
-                <p class="text-sm font-medium" v-html="s.pertanyaan"></p>
+                <p class="text-sm font-medium" v-html="soalHtml(s.pertanyaan)"></p>
                 <p class="mt-1 flex flex-wrap items-center gap-2 text-[12px] text-[#6b778c]">
                   <span class="rounded bg-[#f3f5f9] px-1.5 py-0.5">#{{ meta.halaman }}·{{ s.id }}</span>
                   <span class="rounded bg-[#e8f0fe] px-1.5 py-0.5 text-[#1d4ed8]">{{ labelLevel(s.level) }}</span>

@@ -7,6 +7,7 @@ import { useMateriStore } from '@/stores/materi.js'
 import { usePretestStore } from '@/stores/pretest.js'
 import { useProgressStore } from '@/stores/progress.js'
 import { pesanError } from '@/lib/errors.js'
+import { renderKonten } from '@/lib/richtext.js'
 
 const route = useRoute()
 const router = useRouter()
@@ -20,6 +21,9 @@ const dibukaId = ref(null)
 const menandai = ref(false)
 
 const detail = computed(() => materi.detail)
+// Isi materi arrive sebagai Markdown (heading, list, blok kode) dan LaTeX.
+// Versi blok dipakai karena materi memang boleh punya heading dan paragraf.
+const isiHtml = computed(() => renderKonten(detail.value?.isi))
 
 onMounted(async () => {
   try {
@@ -144,7 +148,7 @@ function statusLabel(m) {
           </div>
           <p class="mt-1 text-[13px] text-[#6b778c]">{{ detail.deskripsi }}</p>
           <img v-if="detail.gambarUrl" :src="detail.gambarUrl" alt="Gambar materi" class="mt-4 max-w-full rounded-xl" />
-          <div v-if="detail.isi" class="prose-materi mt-4 text-sm leading-relaxed" v-html="detail.isi"></div>
+          <div v-if="detail.isi" class="konten-richtext mt-4 text-sm leading-relaxed" v-html="isiHtml"></div>
           <div v-if="detail.fileUrl" class="mt-4">
             <a :href="detail.fileUrl" target="_blank" rel="noopener" class="text-[13px] font-semibold text-[#1d4ed8]">
               Unduh file materi →

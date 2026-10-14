@@ -15,6 +15,7 @@ import {
   nomorSoal as formatNomorSoal,
   sudahDijawab,
 } from '@/lib/soal.js'
+import { renderKontenSatuan } from '@/lib/richtext.js'
 
 const props = defineProps({
   judul: { type: String, default: '' },
@@ -57,6 +58,10 @@ const modalSelesai = ref(false)
 
 const total = computed(() => props.soal.length)
 const soalAktif = computed(() => props.soal[props.aktif] ?? null)
+// Teks soal dari backend berisi Markdown dan LaTeX, jadi dirender lewat
+// lib/richtext (bukan v-html mentah). Versi sebaris dipakai karena elemennya
+// h3 -- render blok akan membungkus <p> yang tidak valid di situ.
+const pertanyaanHtml = computed(() => renderKontenSatuan(soalAktif.value?.pertanyaan))
 const ringkasan = computed(() => hitungRingkasan(props.soal, props.jawaban, props.ragu))
 
 const waktuTampil = computed(() => {
@@ -170,7 +175,7 @@ function pergiKe(i) {
             <img v-if="soalAktif.konteks.gambar" :src="soalAktif.konteks.gambar" alt="Gambar konteks soal" />
           </div>
           <img v-if="soalAktif.gambar" :src="soalAktif.gambar" class="gambar-soal" alt="Gambar soal" />
-          <h3 class="pertanyaan" v-html="soalAktif.pertanyaan"></h3>
+          <h3 class="pertanyaan" v-html="pertanyaanHtml"></h3>
           <p class="hint">{{ petunjukTipe }}</p>
 
           <div v-if="soalAktif.tipe === 'ganda'" class="opsi-list">

@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import UserMenu from '@/components/UserMenu.vue'
 import { useSimulasiStore } from '@/stores/simulasi.js'
 import { kodeError, pesanError } from '@/lib/errors.js'
+import { renderKonten, renderKontenSatuan } from '@/lib/richtext.js'
 
 // Pembahasan per soal. Ini satu-satunya layar yang mengirim kunci jawaban dan
 // pembahasan, jadi tersedia setelah percobaan selesai dinilai.
@@ -17,6 +18,12 @@ const galat = ref('')
 const belumDinilai = ref(false)
 
 const soal = computed(() => simulasi.review?.soal ?? [])
+
+// Pertanyaan dipasang di <h3>, jadi pakai render sebaris. Pembahasan boleh
+// blok penuh karena isinya boleh berparagraf dan ber-heading.
+function soalHtml(teks, blok = false) {
+  return blok ? renderKonten(teks) : renderKontenSatuan(teks)
+}
 
 function keHasil() {
   router.push({ name: 'siswa.simulasi.hasil', params: { hasilId: simulasi.hasilId } })
@@ -117,7 +124,7 @@ onMounted(async () => {
             alt="Gambar soal"
             class="mt-4 max-w-full rounded-xl"
           />
-          <h3 class="mt-4 text-[15px] font-semibold" v-html="s.pertanyaan"></h3>
+          <h3 class="mt-4 text-[15px] font-semibold" v-html="soalHtml(s.pertanyaan)"></h3>
 
           <div v-if="s.tipe === 'ganda'" class="mt-3 flex flex-col gap-2">
             <div
@@ -157,7 +164,7 @@ onMounted(async () => {
             class="mt-3 rounded-xl border border-[#eaeef5] bg-[#fbfcff] px-4 py-3 text-[13px] leading-relaxed"
           >
             <strong class="block text-[#2a3a52]">Pembahasan</strong>
-            <div class="mt-1 text-[#374151]" v-html="s.pembahasan"></div>
+            <div class="konten-richtext mt-1 text-[#374151]" v-html="soalHtml(s.pembahasan, true)"></div>
           </div>
         </article>
 

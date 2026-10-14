@@ -212,6 +212,15 @@ function pindah(i) {
 // Durasi pre-test. Timer hanya berjalan saat soal dikerjakan, jadi memilih
 // tingkat tidak memotong waktu siswa.
 const sisaDetik = ref(DURASI_PRETEST_DETIK)
+// Format mm:ss, sama seperti PengerjaanSoal. Header state awal memakainya
+// dengan label "Durasi :", jadi angkanya belum countdown selama memilih
+// tingkat; baru turun begitu soal dikerjakan.
+const waktuTampil = computed(() => {
+  const totalDetik = sisaDetik.value
+  const m = Math.floor(totalDetik / 60)
+  const s = totalDetik % 60
+  return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+})
 let timer = null
 function mulaiTimer() {
   clearInterval(timer)
