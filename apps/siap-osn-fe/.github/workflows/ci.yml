@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      # Tanpa --fix: CI hanya memeriksa, tidak mengubah kode.
+      - run: bunx oxlint .
+      - run: bunx eslint .
+
+      - run: bun run test:unit
+
+      - run: printf 'VITE_API_BASE_URL=http://localhost:8000/api\n' > .env
+      - run: bun run build

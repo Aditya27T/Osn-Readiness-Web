@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+/* Rumus di soal, pembahasan, dan materi dirender KaTeX lewat src/lib/richtext.js.
+   CSS-nya wajib ikut diimpor; tanpa itu rumus tetap muncul sebagai HTML-nya
+   yang menumpuk berantakan. */
+@import "katex/dist/katex.min.css";
+
+/* Reset dasar. Dulu hanya ada di blok <style> global PretestView, jadi
+   halaman latihan & simulasi yang memakai PengerjaanSoal ikut bergantung
+   pada file itu ter-load. */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* Animasi masuk halaman auth (dipakai hero & form register). */
+@keyframes enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim-a {
+  animation: enter 500ms ease-out both;
+}
+.anim-b {
+  animation: enter 600ms 80ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Konten kaya dari backend (isi materi, pembahasan soal).
+   Elemennya datang dari renderKonten() di src/lib/richtext.js, jadi gaya di
+   sini disesuaikan untuk hasil Markdown, bukan untuk HTML buatan view. */
+.konten-richtext > :first-child { margin-top: 0; }
+.konten-richtext > :last-child { margin-bottom: 0; }
+.konten-richtext h1,
+.konten-richtext h2,
+.konten-richtext h3,
+.konten-richtext h4 {
+  margin: 1.1em 0 0.45em;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0b1220;
+}
+.konten-richtext h1 { font-size: 1.35em; }
+.konten-richtext h2 { font-size: 1.2em; }
+.konten-richtext h3 { font-size: 1.08em; }
+.konten-richtext p { margin: 0.6em 0; }
+.konten-richtext ul,
+.konten-richtext ol { margin: 0.6em 0; padding-left: 1.4em; }
+.konten-richtext ul { list-style: disc; }
+.konten-richtext ol { list-style: decimal; }
+.konten-richtext li { margin: 0.25em 0; }
+.konten-richtext a { color: #0759a5; text-decoration: underline; }
+
+/* Kode: soal OSN banyak memuat cuplikan Pascal/C++. Teks harus tetap bisa
+   disalin utuh, jadi font monospace dipakai dan overflow digulir. */
+.konten-richtext code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: #f1f5f9;
+  border-radius: 4px;
+  padding: 0.1em 0.32em;
+}
+.konten-richtext pre {
+  margin: 0.8em 0;
+  padding: 0.85em 1em;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.konten-richtext pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.88em;
+  line-height: 1.55;
+}
+
+.konten-richtext blockquote {
+  margin: 0.8em 0;
+  padding-left: 0.9em;
+  border-left: 3px solid #cbd5e1;
+  color: #475569;
+}
+
+/* Rumus panjang di layar sempit (soal di iOS/Android) meluber horizontal.
+   Overflow horizontal yang perlu, bukan wrapping yang merusak garis. */
+.konten-richtext .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25em 0;
+}
+.konten-richtext .katex { font-size: 1.05em; }

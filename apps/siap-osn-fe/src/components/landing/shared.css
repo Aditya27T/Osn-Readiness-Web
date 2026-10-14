@@ -1,0 +1,141 @@
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section--white {
+  background: #fff;
+}
+
+.section--navy {
+  background: var(--navy);
+  color: #fff;
+}
+
+.section--navy-2 {
+  background: var(--navy-2);
+  color: #fff;
+}
+
+.section--soft {
+  background: var(--soft);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.btn--sm {
+  padding: 9px 16px;
+}
+
+.btn--xs {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+.btn--light {
+  background: #fff;
+  color: var(--navy);
+}
+
+.btn--light:hover {
+  background: #e8edf8;
+}
+
+.btn--outline {
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+.btn--outline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn--ghost {
+  border-color: var(--line);
+  color: var(--ink);
+  background: #fff;
+}
+
+.btn--ghost:hover {
+  border-color: #c5cbe0;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  color: #c8d2ea;
+}
+
+.kicker--center {
+  display: block;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.hl {
+  background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 94%, transparent 94%);
+}
+
+.lp .marked--block {
+  display: block;
+  max-width: 14em;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-top: 14px;
+  margin-bottom: 64px;
+}
+
+.marked--center {
+  display: block;
+  text-align: center;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.split__text {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+
+.split__text h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.split__text p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 46ch;
+}
+
+.split__text--light p {
+  color: #c8d2ea;
+}
