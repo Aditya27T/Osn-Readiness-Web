@@ -1,0 +1,414 @@
+{
+  "sumber": "soal/ (origin/Fakhri)",
+  "materi": "Materi/ (branch integrasi)",
+  "kebijakan_peruntukan": "<=2012 pretest, <=2019 latihan, selebihnya simulasi",
+  "baris_sumber": 1816,
+  "siap_impor": 1736,
+  "dilewati": 80,
+  "alasan": {
+    "gambar hilang": 32,
+    "jawaban program belum didukung": 48
+  },
+  "rinci": [
+    {
+      "id_sumber": "kab_soal4_2007",
+      "alasan": "gambar hilang",
+      "rinci": "soal_4.png"
+    },
+    {
+      "id_sumber": "kab_soal2_2008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab_soal10_2008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_10_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab_soal19_2008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_20_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab_soal20_2008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_20_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab_soal21_2008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_20_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab_soal8_2009",
+      "alasan": "gambar hilang",
+      "rinci": "soal_8_kab_2009.png"
+    },
+    {
+      "id_sumber": "kab_soal3_2011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_3_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab_soal5_2011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab_soal6_2011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_6_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab_soal7_2011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_6_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab_soal25_2011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab_soal26_2011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_31_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab_soal5_2014",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5_kab_2014.png"
+    },
+    {
+      "id_sumber": "kab_soal22_2023",
+      "alasan": "gambar hilang",
+      "rinci": "soal_22_1_kab_2023.png, soal_22_2_kab_2023.png"
+    },
+    {
+      "id_sumber": "prov_soal18_2010",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30.png"
+    },
+    {
+      "id_sumber": "prov_soal19_2010",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30.png"
+    },
+    {
+      "id_sumber": "prov_soal20_2010",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30.png"
+    },
+    {
+      "id_sumber": "prov_soal8_2014",
+      "alasan": "gambar hilang",
+      "rinci": "soal_14.png"
+    },
+    {
+      "id_sumber": "prov_soal9_2014",
+      "alasan": "gambar hilang",
+      "rinci": "soal_14.png"
+    },
+    {
+      "id_sumber": "prov_soal12_2014",
+      "alasan": "gambar hilang",
+      "rinci": "soal_14.png"
+    },
+    {
+      "id_sumber": "prov_soal49_2015",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal50_2015",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal43_2016",
+      "alasan": "gambar hilang",
+      "rinci": "soal_56.png"
+    },
+    {
+      "id_sumber": "prov_soal44_2016",
+      "alasan": "gambar hilang",
+      "rinci": "soal_56.png"
+    },
+    {
+      "id_sumber": "prov_soal46_2016",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal47_2016",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal48_2016",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal37_2017",
+      "alasan": "gambar hilang",
+      "rinci": "soal_55.png"
+    },
+    {
+      "id_sumber": "prov_soal38_2017",
+      "alasan": "gambar hilang",
+      "rinci": "soal_55.png"
+    },
+    {
+      "id_sumber": "prov_soal46_2017",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal41_2018",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal42_2018",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal7_2019",
+      "alasan": "gambar hilang",
+      "rinci": "soal_7_prov_2019.png"
+    },
+    {
+      "id_sumber": "prov_soal8_2019",
+      "alasan": "gambar hilang",
+      "rinci": "soal_7_prov_2019.png"
+    },
+    {
+      "id_sumber": "prov_soal32_2019",
+      "alasan": "gambar hilang",
+      "rinci": "soal_13_prov_2019.png"
+    },
+    {
+      "id_sumber": "prov_soal41_2019",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal14_2020",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal18_2020",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal22_2020",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal26_2020",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal30_2020",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal31_2020",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5.png"
+    },
+    {
+      "id_sumber": "prov_soal32_2020",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5.png"
+    },
+    {
+      "id_sumber": "prov_soal33_2020",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5.png"
+    },
+    {
+      "id_sumber": "prov_soal34_2020",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal7_2021",
+      "alasan": "gambar hilang",
+      "rinci": "soal_3.jpeg"
+    },
+    {
+      "id_sumber": "prov_soal14_2021",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal18_2021",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal22_2021",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal26_2021",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal30_2021",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal14_2022",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal18_2022",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal22_2022",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal26_2022",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal30_2022",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal13_2023",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal16_2023",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal19_2023",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal22_2023",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal25_2023",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal4_2024",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal8_2024",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal12_2024",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal16_2024",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal20_2024",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal24_2024",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal4_2025",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal8_2025",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal12_2025",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal16_2025",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal20_2025",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal24_2025",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal4_2026",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal8_2026",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal12_2026",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal16_2026",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal20_2026",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov_soal24_2026",
+      "alasan": "jawaban program belum didukung",
+      "rinci": ""
+    }
+  ]
+}

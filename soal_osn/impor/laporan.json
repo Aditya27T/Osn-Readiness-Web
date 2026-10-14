@@ -1,0 +1,2024 @@
+{
+  "baris_sumber": 2014,
+  "siap_impor": 1612,
+  "dilewati": 402,
+  "alasan": {
+    "gambar hilang": 64,
+    "tanpa label": 213,
+    "tanpa kunci": 42,
+    "cacat": 82,
+    "kunci di luar pilihan": 1
+  },
+  "rinci": [
+    {
+      "id_sumber": "kab-2007-004",
+      "alasan": "gambar hilang",
+      "rinci": "soal_4.png"
+    },
+    {
+      "id_sumber": "kab-2007-013",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-019",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-023",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-027",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-036",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-042",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-045",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-049",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-052",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2007-057",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-001",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-002",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_2_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab-2008-003",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-004",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-005",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-006",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-007",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-008",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-009",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-010",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_10_kab_2008.png"
+    },
+    {
+      "id_sumber": "kab-2008-011",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-012",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-013",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-014",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-015",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-016",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-017",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-018",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-019",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-020",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-021",
+      "alasan": "cacat",
+      "rinci": "soal cacat di sumber: Dengan x - y = 4 tidak ada solusi bulat."
+    },
+    {
+      "id_sumber": "kab-2008-022",
+      "alasan": "cacat",
+      "rinci": "soal cacat di sumber: Dengan 6 bilangan 0..50 puncaknya 800 (tidak ada di pilihan)."
+    },
+    {
+      "id_sumber": "kab-2008-023",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-024",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-025",
+      "alasan": "cacat",
+      "rinci": "soal cacat di sumber: Ambigu: tergantung apakah Sardi suami saudara Budi atau kakak istri Budi."
+    },
+    {
+      "id_sumber": "kab-2008-026",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-027",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-028",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-029",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-030",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-031",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-033",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-034",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-035",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-036",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-037",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-038",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-039",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-040",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-041",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-042",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-043",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-044",
+      "alasan": "cacat",
+      "rinci": "soal cacat di sumber: Dengan n = 10 angka 5 muncul 2 kali (tidak ada di pilihan)."
+    },
+    {
+      "id_sumber": "kab-2008-045",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-046",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-047",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-048",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-049",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-050",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-051",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-052",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-053",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-054",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-055",
+      "alasan": "cacat",
+      "rinci": "soal cacat di sumber: Kode tidak valid: 'if (a<100)' dan 'if (c<0)' memakai nama fungsi sebagai variabel."
+    },
+    {
+      "id_sumber": "kab-2008-056",
+      "alasan": "cacat",
+      "rinci": "soal cacat di sumber: Dengan kode yang sama, tidak ada pilihan yang menghasilkan nilai < 0 (tafsiran literal) atau semuanya menghasilkan -10 (tafsiran 'x<100', 'z<0')."
+    },
+    {
+      "id_sumber": "kab-2008-057",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-058",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-059",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-060",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-061",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-062",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2008-063",
+      "alasan": "tanpa kunci",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-008",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_8_kab_2009.png"
+    },
+    {
+      "id_sumber": "kab-2009-011",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-019",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-023",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-028",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-045",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-048",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2009-056",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-011",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-020",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-025",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-029",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-033",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-048",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-052",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-055",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2010-058",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-003",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-005",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_5_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab-2011-006",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-009",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-012",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-027",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2011-030",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_30_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab-2011-031",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_31_kab_2011.png"
+    },
+    {
+      "id_sumber": "kab-2011-037",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-004",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-013",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-024",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-030",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-035",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-040",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-051",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-054",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-057",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2012-060",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-001",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-010",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-017",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-028",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-041",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-044",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-050",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2013-054",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-005",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_5_kab_2014.png"
+    },
+    {
+      "id_sumber": "kab-2014-018",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-022",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-026",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-031",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-036",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-039",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-042",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-045",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-050",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-053",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-056",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2014-059",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-004",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-018",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-023",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-029",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-036",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-046",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-049",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-053",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-056",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2015-060",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-022",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-026",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-031",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-035",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-053",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2016-056",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-025",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-028",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-031",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-037",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-039",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2017-044",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "kab-2022-025",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_kabupaten/soal_25_kab_2022.png"
+    },
+    {
+      "id_sumber": "prov-2010-003",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-009",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-013",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-014",
+      "alasan": "gambar hilang",
+      "rinci": "soal_14.png"
+    },
+    {
+      "id_sumber": "prov-2010-015",
+      "alasan": "gambar hilang",
+      "rinci": "soal_15.png"
+    },
+    {
+      "id_sumber": "prov-2010-016",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-020",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-023",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-030",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30.png"
+    },
+    {
+      "id_sumber": "prov-2010-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-037",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-042",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-049",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2010-050",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-004",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-007",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-013",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-017",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-027",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-031",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-035",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-038",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2011-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-009",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-018",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-021",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-037",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-040",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-044",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2012-045",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2012-046",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2012-048",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-051",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-054",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2012-059",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-003",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-007",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_8.png"
+    },
+    {
+      "id_sumber": "prov-2013-012",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-016",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-025",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-034",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-037",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-042",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-052",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2013-057",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-003",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-009",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-014",
+      "alasan": "gambar hilang",
+      "rinci": "soal_14.png"
+    },
+    {
+      "id_sumber": "prov-2014-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-019",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-023",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-026",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-027",
+      "alasan": "gambar hilang",
+      "rinci": "soal_27.png"
+    },
+    {
+      "id_sumber": "prov-2014-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-035",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-038",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-041",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-044",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-053",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-056",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-059",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-063",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2014-064",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-001",
+      "alasan": "kunci di luar pilihan",
+      "rinci": "2 vs ['a', 'b', 'c']"
+    },
+    {
+      "id_sumber": "prov-2015-005",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5.png"
+    },
+    {
+      "id_sumber": "prov-2015-008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_8.png"
+    },
+    {
+      "id_sumber": "prov-2015-009",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-018",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-026",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-030",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30.png"
+    },
+    {
+      "id_sumber": "prov-2015-041",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-044",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-049",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2015-053",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-002",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2016-003",
+      "alasan": "gambar hilang",
+      "rinci": "soal_3.png"
+    },
+    {
+      "id_sumber": "prov-2016-006",
+      "alasan": "gambar hilang",
+      "rinci": "soal_6.png"
+    },
+    {
+      "id_sumber": "prov-2016-010",
+      "alasan": "gambar hilang",
+      "rinci": "soal_10.png"
+    },
+    {
+      "id_sumber": "prov-2016-013",
+      "alasan": "gambar hilang",
+      "rinci": "soal_13.png"
+    },
+    {
+      "id_sumber": "prov-2016-014",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-015",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-016",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-021",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-024",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-032",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-038",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-041",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-044",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-047",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-050",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-051",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-052",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-053",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2016-054",
+      "alasan": "gambar hilang",
+      "rinci": "soal_54.png"
+    },
+    {
+      "id_sumber": "prov-2016-055",
+      "alasan": "gambar hilang",
+      "rinci": "soal_55.png"
+    },
+    {
+      "id_sumber": "prov-2016-056",
+      "alasan": "gambar hilang",
+      "rinci": "soal_56.png"
+    },
+    {
+      "id_sumber": "prov-2017-005",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-011",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-015",
+      "alasan": "gambar hilang",
+      "rinci": "soal_15.png"
+    },
+    {
+      "id_sumber": "prov-2017-016",
+      "alasan": "gambar hilang",
+      "rinci": "soal_16.png"
+    },
+    {
+      "id_sumber": "prov-2017-017",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-020",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-022",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-023",
+      "alasan": "gambar hilang",
+      "rinci": "soal_23.png"
+    },
+    {
+      "id_sumber": "prov-2017-026",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-029",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-033",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-036",
+      "alasan": "gambar hilang",
+      "rinci": "soal_36.png"
+    },
+    {
+      "id_sumber": "prov-2017-040",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-043",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2017-045",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2017-054",
+      "alasan": "gambar hilang",
+      "rinci": "soal_54.png"
+    },
+    {
+      "id_sumber": "prov-2017-055",
+      "alasan": "gambar hilang",
+      "rinci": "soal_55.png"
+    },
+    {
+      "id_sumber": "prov-2018-007",
+      "alasan": "gambar hilang",
+      "rinci": "soal_7.jpg"
+    },
+    {
+      "id_sumber": "prov-2018-008",
+      "alasan": "gambar hilang",
+      "rinci": "soal_8.jpg"
+    },
+    {
+      "id_sumber": "prov-2018-009",
+      "alasan": "gambar hilang",
+      "rinci": "soal_9.jpg"
+    },
+    {
+      "id_sumber": "prov-2018-018",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2018-021",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2018-026",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2018-030",
+      "alasan": "gambar hilang",
+      "rinci": "soal_30.png"
+    },
+    {
+      "id_sumber": "prov-2018-031",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2018-033",
+      "alasan": "gambar hilang",
+      "rinci": "soal_33.png"
+    },
+    {
+      "id_sumber": "prov-2018-034",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2018-035",
+      "alasan": "gambar hilang",
+      "rinci": "soal_35.png"
+    },
+    {
+      "id_sumber": "prov-2018-036",
+      "alasan": "gambar hilang",
+      "rinci": "soal_36.png"
+    },
+    {
+      "id_sumber": "prov-2018-038",
+      "alasan": "gambar hilang",
+      "rinci": "soal_38.png"
+    },
+    {
+      "id_sumber": "prov-2019-007",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_provinsi/soal_7_prov_2019.png"
+    },
+    {
+      "id_sumber": "prov-2019-008",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2019-028",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2019-031",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2019-032",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_provinsi/soal_13_prov_2019.png"
+    },
+    {
+      "id_sumber": "prov-2019-034",
+      "alasan": "gambar hilang",
+      "rinci": "../gambar_provinsi/soal_34_prov_2019.png"
+    },
+    {
+      "id_sumber": "prov-2019-038",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2019-039",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2019-040",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2019-041",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2019-042",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2020-007",
+      "alasan": "gambar hilang",
+      "rinci": "soal_3.jpeg"
+    },
+    {
+      "id_sumber": "prov-2020-014",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2020-018",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2020-022",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2020-026",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2020-030",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2020-031",
+      "alasan": "gambar hilang",
+      "rinci": "soal_5.png"
+    },
+    {
+      "id_sumber": "prov-2020-034",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2021-001",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-002",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-003",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-004",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-005",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-006",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-007",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-008",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-009",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-010",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-011",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-012",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-013",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-014",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-015",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-016",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-017",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-018",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-019",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-020",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-021",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-022",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-023",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-024",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-025",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-026",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-027",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-028",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-029",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-030",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-031",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-032",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-033",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2021-034",
+      "alasan": "cacat",
+      "rinci": "duplikat prov-2020"
+    },
+    {
+      "id_sumber": "prov-2022-004",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.jpeg"
+    },
+    {
+      "id_sumber": "prov-2022-014",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2022-018",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2022-022",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2022-023",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2022-026",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2022-030",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2023-013",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2023-016",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2023-017",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2023-019",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2023-020",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2023-022",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2023-023",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2023-025",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2024-004",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2024-008",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2024-009",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2024-010",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2024-011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2024-012",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2024-016",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2024-020",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2024-024",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2025-004",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2025-005",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2025-006",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2025-008",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2025-009",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2025-010",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2025-011",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2025-012",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2025-013",
+      "alasan": "gambar hilang",
+      "rinci": "soal_3.png"
+    },
+    {
+      "id_sumber": "prov-2025-016",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2025-020",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2025-021",
+      "alasan": "gambar hilang",
+      "rinci": "soal_4.png, soal_5.png"
+    },
+    {
+      "id_sumber": "prov-2025-022",
+      "alasan": "gambar hilang",
+      "rinci": "soal_4.png, soal_5.png"
+    },
+    {
+      "id_sumber": "prov-2025-023",
+      "alasan": "gambar hilang",
+      "rinci": "soal_6.png"
+    },
+    {
+      "id_sumber": "prov-2025-024",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2026-001",
+      "alasan": "gambar hilang",
+      "rinci": "soal_1.png"
+    },
+    {
+      "id_sumber": "prov-2026-002",
+      "alasan": "tanpa label",
+      "rinci": ""
+    },
+    {
+      "id_sumber": "prov-2026-004",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2026-008",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2026-012",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2026-016",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2026-020",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    },
+    {
+      "id_sumber": "prov-2026-021",
+      "alasan": "gambar hilang",
+      "rinci": "soal_2.png"
+    },
+    {
+      "id_sumber": "prov-2026-022",
+      "alasan": "gambar hilang",
+      "rinci": "soal_3.png"
+    },
+    {
+      "id_sumber": "prov-2026-024",
+      "alasan": "cacat",
+      "rinci": "tidak bisa dinilai otomatis (soal pemrograman / jawaban kode, rumus, atau daftar)"
+    }
+  ]
+}
