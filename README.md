@@ -15,12 +15,28 @@ Penggabungan tiga repo proyek OSN ke dalam satu repo, **tanpa menghapus riwayat 
 Setiap repo digabung dengan `git subtree add` tanpa `--squash`, jadi seluruh commit asli
 masih ada di repo ini. Hanya lokasi file yang berubah mengikuti struktur folder di atas.
 
-Melihat riwayat commit sebuah app:
+Melihat seluruh riwayat commit (author, tanggal, pesan) sesuai urutan waktu:
 
 ```bash
-git log --oneline apps/siap-osn-fe
-git log --follow apps/siap-osn-fe/src/views/siswa/PretestView.vue
+git log --oneline --graph
+git log --oneline --author=<nama>
 ```
+
+Melihat isi sebuah commit tertentu:
+
+```bash
+git show <sha>
+```
+
+### Catatan: `git log <path>` terbatas
+
+Karena tiap repo digabung lewat merge commit, path file berubah mengikuti prefix folder
+(`src/...` menjadi `apps/siap-osn-fe/src/...`). Git tidak bisa menelusuri mundur melewati
+merge untuk path lama, jadi `git log -- apps/siap-osn-fe/src/...` hanya menampilkan
+commit penggabungan, bukan seluruh riwayat file tersebut.
+
+Semua commit lama tetap ada dan bisa dibaca lewat `git log --graph` atau `git show <sha>`.
+Cara ini dipilih agar SHA commit tetap identik dengan repo GitHub asalnya.
 
 Melihat commit dari repo tertentu saja:
 
