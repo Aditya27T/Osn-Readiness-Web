@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+*.db
+*.sqlite3
+.env
+
+# Knowledge graph lokal graphify — artefak alat bantu, bukan bagian codebase.
+graphify-out/
+.DS_Store
+Archive.zip
+
+# Override Docker Compose lokal (port dev bentrok dengan stack Laravel)
+docker-compose.override.yml
