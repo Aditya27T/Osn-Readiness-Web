@@ -81,7 +81,7 @@ services:
       - osn-network
 
   # ============================================================================
-  # 4. ANALYTICS API: FastAPI Python (data-analytics)
+  # 4. ANALYTICS API: FastAPI Python (data-analytics) — Stateless Layanan Hitung
   # ============================================================================
   analytics-api:
     build:
@@ -91,39 +91,11 @@ services:
     restart: unless-stopped
     ports:
       - "${ANALYTICS_PORT:-8001}:8000"
-    command: ["sh", "-c", "uv run alembic upgrade head && uv run --no-sync uvicorn data_analytics.api:app --host 0.0.0.0 --port 8000 --reload"]
+    command: ["uv", "run", "--no-sync", "uvicorn", "data_analytics.api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
     environment:
-      DATABASE_URL: postgresql+psycopg://${ANALYTICS_DB_USERNAME:-analytics}:${ANALYTICS_DB_PASSWORD:-changeme-generate-a-real-secret}@analytics-db:5432/${ANALYTICS_DB_DATABASE:-analytics}
       INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:-changeme-generate-a-real-secret}
-      DATA_RETENTION_MONTHS: 24
     volumes:
       - ./apps/data-analytics:/app
-    depends_on:
-      analytics-db:
-        condition: service_healthy
-    networks:
-      - osn-network
-
-  # ============================================================================
-  # 5. DATABASE ANALYTICS: PostgreSQL 16 + pgvector
-  # ============================================================================
-  analytics-db:
-    image: pgvector/pgvector:pg16
-    container_name: osn-analytics-db
-    restart: unless-stopped
-    ports:
-      - "${ANALYTICS_DB_PORT:-5433}:5432"
-    environment:
-      POSTGRES_DB: ${ANALYTICS_DB_DATABASE:-analytics}
-      POSTGRES_USER: ${ANALYTICS_DB_USERNAME:-analytics}
-      POSTGRES_PASSWORD: ${ANALYTICS_DB_PASSWORD:-changeme-generate-a-real-secret}
-    volumes:
-      - analytics_pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${ANALYTICS_DB_USERNAME:-analytics} -d ${ANALYTICS_DB_DATABASE:-analytics}"]
-      interval: 5s
-      timeout: 3s
-      retries: 5
     networks:
       - osn-network
 
@@ -133,4 +105,3 @@ networks:
 
 volumes:
   app_pgdata:
-  analytics_pgdata:

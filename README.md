@@ -12,7 +12,7 @@ Penggabungan tiga repo proyek OSN ke dalam satu repo, **tanpa menghapus riwayat 
 
 ## Menjalankan dengan Docker Compose
 
-Seluruh 3 aplikasi (Frontend, Backend, Layanan Hitung) serta 2 databasenya dapat dijalankan bersamaan dengan Docker:
+Seluruh 3 aplikasi (Frontend, Backend, Layanan Hitung) serta database PostgreSQL untuk backend dapat dijalankan bersamaan dengan Docker:
 
 ```bash
 # 1. Salin environment variable (opsional bila ingin kustomisasi port)
@@ -25,9 +25,8 @@ docker compose up --build
 Setelah berjalan:
 - **Frontend (Vue/Vite):** http://localhost:5173
 - **Backend API (Laravel):** http://localhost:8000
-- **Layanan Hitung (FastAPI):** http://localhost:8001 (internal: http://analytics-api:8000)
-- **Database Laravel (Postgres):** `localhost:5432`
-- **Database Analytics (Postgres + pgvector):** `localhost:5433`
+- **Layanan Hitung (FastAPI - Stateless):** http://localhost:8001 (internal: http://analytics-api:8000)
+- **Database Backend (Postgres):** `localhost:5432`
 
 Untuk menghentikan:
 ```bash
