@@ -1,0 +1,136 @@
+services:
+  # ============================================================================
+  # 1. FRONTEND: Vue 3 + Vite (siap-osn-fe)
+  # ============================================================================
+  frontend:
+    build:
+      context: ./apps/siap-osn-fe
+      dockerfile: Dockerfile
+    container_name: osn-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-5173}:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:${BACKEND_PORT:-8000}/api
+    volumes:
+      - ./apps/siap-osn-fe:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - osn-network
+
+  # ============================================================================
+  # 2. BACKEND: Laravel 11 API (Osn-Readiness-Web)
+  # ============================================================================
+  backend:
+    build:
+      context: ./apps/Osn-Readiness-Web
+      dockerfile: Dockerfile
+    container_name: osn-backend
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    environment:
+      APP_NAME: Laravel
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:${BACKEND_PORT:-8000}
+      FRONTEND_URL: http://localhost:${FRONTEND_PORT:-5173}
+      DB_CONNECTION: pgsql
+      DB_HOST: app-db
+      DB_PORT: 5432
+      DB_DATABASE: ${APP_DB_DATABASE:-osn_readiness}
+      DB_USERNAME: ${APP_DB_USERNAME:-sail}
+      DB_PASSWORD: ${APP_DB_PASSWORD:-password}
+      PERHITUNGAN_URL: http://analytics-api:8000
+      PERHITUNGAN_TOKEN: ${INTERNAL_API_TOKEN:-changeme-generate-a-real-secret}
+      AUTO_MIGRATE: "true"
+    volumes:
+      - ./apps/Osn-Readiness-Web:/var/www/html
+      - /var/www/html/vendor
+    depends_on:
+      app-db:
+        condition: service_healthy
+      analytics-api:
+        condition: service_started
+    networks:
+      - osn-network
+
+  # ============================================================================
+  # 3. DATABASE BACKEND: PostgreSQL 16
+  # ============================================================================
+  app-db:
+    image: postgres:16
+    container_name: osn-app-db
+    restart: unless-stopped
+    ports:
+      - "${APP_DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_DB: ${APP_DB_DATABASE:-osn_readiness}
+      POSTGRES_USER: ${APP_DB_USERNAME:-sail}
+      POSTGRES_PASSWORD: ${APP_DB_PASSWORD:-password}
+    volumes:
+      - app_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${APP_DB_USERNAME:-sail} -d ${APP_DB_DATABASE:-osn_readiness}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - osn-network
+
+  # ============================================================================
+  # 4. ANALYTICS API: FastAPI Python (data-analytics)
+  # ============================================================================
+  analytics-api:
+    build:
+      context: ./apps/data-analytics
+      dockerfile: Dockerfile
+    container_name: osn-analytics-api
+    restart: unless-stopped
+    ports:
+      - "${ANALYTICS_PORT:-8001}:8000"
+    command: ["sh", "-c", "uv run alembic upgrade head && uv run --no-sync uvicorn data_analytics.api:app --host 0.0.0.0 --port 8000 --reload"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://${ANALYTICS_DB_USERNAME:-analytics}:${ANALYTICS_DB_PASSWORD:-changeme-generate-a-real-secret}@analytics-db:5432/${ANALYTICS_DB_DATABASE:-analytics}
+      INTERNAL_API_TOKEN: ${INTERNAL_API_TOKEN:-changeme-generate-a-real-secret}
+      DATA_RETENTION_MONTHS: 24
+    volumes:
+      - ./apps/data-analytics:/app
+    depends_on:
+      analytics-db:
+        condition: service_healthy
+    networks:
+      - osn-network
+
+  # ============================================================================
+  # 5. DATABASE ANALYTICS: PostgreSQL 16 + pgvector
+  # ============================================================================
+  analytics-db:
+    image: pgvector/pgvector:pg16
+    container_name: osn-analytics-db
+    restart: unless-stopped
+    ports:
+      - "${ANALYTICS_DB_PORT:-5433}:5432"
+    environment:
+      POSTGRES_DB: ${ANALYTICS_DB_DATABASE:-analytics}
+      POSTGRES_USER: ${ANALYTICS_DB_USERNAME:-analytics}
+      POSTGRES_PASSWORD: ${ANALYTICS_DB_PASSWORD:-changeme-generate-a-real-secret}
+    volumes:
+      - analytics_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${ANALYTICS_DB_USERNAME:-analytics} -d ${ANALYTICS_DB_DATABASE:-analytics}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - osn-network
+
+networks:
+  osn-network:
+    driver: bridge
+
+volumes:
+  app_pgdata:
+  analytics_pgdata:

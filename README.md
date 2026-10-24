@@ -10,6 +10,30 @@ Penggabungan tiga repo proyek OSN ke dalam satu repo, **tanpa menghapus riwayat 
 | `apps/data-analytics/` | `PTI-A-PROJECT/data-analytics` | `integrasi` | Backend Python (FastAPI + Alembic) |
 | `apps/siap-osn-fe/` | `PTI-A-PROJECT/Siap-osn-Fe` | `dev` | Frontend Vue (Vite) |
 
+## Menjalankan dengan Docker Compose
+
+Seluruh 3 aplikasi (Frontend, Backend, Layanan Hitung) serta 2 databasenya dapat dijalankan bersamaan dengan Docker:
+
+```bash
+# 1. Salin environment variable (opsional bila ingin kustomisasi port)
+cp .env.example .env
+
+# 2. Build dan jalankan seluruh container
+docker compose up --build
+```
+
+Setelah berjalan:
+- **Frontend (Vue/Vite):** http://localhost:5173
+- **Backend API (Laravel):** http://localhost:8000
+- **Layanan Hitung (FastAPI):** http://localhost:8001 (internal: http://analytics-api:8000)
+- **Database Laravel (Postgres):** `localhost:5432`
+- **Database Analytics (Postgres + pgvector):** `localhost:5433`
+
+Untuk menghentikan:
+```bash
+docker compose down
+```
+
 ## Riwayat commit tetap utuh
 
 Setiap repo digabung dengan `git subtree add` tanpa `--squash`, jadi seluruh commit asli
